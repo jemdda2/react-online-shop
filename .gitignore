@@ -1,9 +1,10 @@
 /node_modules
 /build
+/uploads
 
 dev.js
 
-
+*.jpg
 
 .DS_Store
 
