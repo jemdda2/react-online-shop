@@ -4,6 +4,7 @@ import { Icon, Col, Card, Row } from 'antd';
 import Axios from 'axios';
 
 import ImageSlider from '../../utils/ImageSlider'
+import CheckBox from './Sections/CheckBox'
 
 const { Meta } = Card;
 
@@ -63,13 +64,22 @@ function LandingPage() {
         </Col>
     })
 
+    const handleFilters = (filters, category) => {
+
+    }
+
     return (
         <div style={{ width: '75%', margin: '3rem auto' }}>
+
+
             <div style={{ textAlign: 'center' }}>
                 <h2> Let's Travel Anywhere <Icon type="rocket" /> </h2>
             </div>
 
             {/* { Filter } */}
+            <CheckBox 
+                handleFilters={filters => handleFilters(filters, "continents")}
+            />
 
             {/* { Search } */}
             {Products.length === 0 ?
