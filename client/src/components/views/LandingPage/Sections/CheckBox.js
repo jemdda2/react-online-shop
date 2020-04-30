@@ -34,7 +34,7 @@ const continents = [
     }
 ]
 
-function CheckBox() {
+function CheckBox(props) {
 
     const [Checked, setChecked] = useState([]);
 
@@ -44,7 +44,7 @@ function CheckBox() {
         const newChecked = [...Checked];
 
         if (currentIndex === -1) {
-            newChecked.push(calue);
+            newChecked.push(value);
         } else {
             newChecked.splice(currentIndex, 1);
         }
@@ -59,7 +59,7 @@ function CheckBox() {
             <Checkbox 
                 onChange={()=>handleToggle(value._id)}
                 type="checkbox"
-                checked
+                checked={Checked.indexOf(value._id) === -1 ? false : true}
             />
             <span>{value.name}</span>
         </React.Fragment>
