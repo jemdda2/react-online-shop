@@ -5,6 +5,7 @@ import Axios from 'axios';
 
 import ImageSlider from '../../utils/ImageSlider'
 import CheckBox from './Sections/CheckBox'
+import RadioBox from './Sections/RadioBox'
 
 const { Meta } = Card;
 
@@ -13,7 +14,7 @@ function LandingPage() {
     const [Products, setProducts] = useState([]);
     const [Skip, setSkip] = useState(0);
     const [Limit, setLimit] = useState(8);
-    const [PostSize, setPostSize] = useState(0);
+    const [PostSize, setPostSize] = useState();
     const [Filters, setFilters] = useState({
         continents: [],
         price: []
@@ -88,6 +89,8 @@ function LandingPage() {
 
             console.log(filters);
             const newFilters = { ...Filters }
+            console.log(newFilters);
+            
 
             newFilters[category] = filters;
 
@@ -109,9 +112,22 @@ function LandingPage() {
             </div>
 
             {/* { Filter } */}
-            <CheckBox 
-                handleFilters={filters => handleFilters(filters, "continents")}
-            />
+
+            <Row gutter={[16, 16]}>
+                <Col lg={12} xs={24} >
+                    <CheckBox 
+                        handleFilters={filters => handleFilters(filters, "continents")}
+                    />
+                </Col>
+                <Col lg={12} xs={24} >
+                    <RadioBox
+                        handleFilters={filters => handleFilters(filters, "price")}
+                    />                    
+                </Col>
+            </Row>
+
+
+
 
             {/* { Search } */}
             {Products.length === 0 ?

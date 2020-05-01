@@ -68,7 +68,7 @@ function CheckBox(props) {
     return (
         <div>
             <Collapse defaultActiveKey={['0']} >
-                <Panel header key="1">
+                <Panel header="Continents" key="1">
                     {renderCheckboxLists()}
                 </Panel>
             </Collapse>
