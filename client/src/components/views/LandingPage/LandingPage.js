@@ -54,7 +54,9 @@ function LandingPage() {
         const variables = {
             skip: skip,
             limit: Limit,
-            loadMore: true
+            loadMore: true,
+            filters: Filters,
+            searchTerm: SearchTerms
         }
 
         getProducts(variables);
@@ -76,7 +78,7 @@ function LandingPage() {
         </Col>
     })
 
-    const showFilteredResults = () => {
+    const showFilteredResults = (filters) => {
 
         const variables = {
             skip: 0,
@@ -122,6 +124,17 @@ function LandingPage() {
 
     const updateSearchTerms = (newSearchTerm) => {
         setSearchTerms(newSearchTerm);
+
+        const variables = {
+            skip: 0,
+            limit: Limit,
+            filters: Filters,
+            searchTerm: newSearchTerm
+        }
+
+        setSkip(0);
+        setSearchTerms(newSearchTerm);
+        getProducts(variables);
     }
 
 
